@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Shreeya Clothing Store</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fff5f8;
+            margin: 0;
+            color: #333;
+        }
+
+        header {
+            background-color: #c2185b;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        nav {
+            background-color: #f8bbd0;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav a {
+            margin: 0 10px;
+            text-decoration: none;
+            font-weight: bold;
+            color: #4a0033;
+        }
+
+        nav a:hover {
+            color: #c2185b;
+        }
+
+        section {
+            background: white;
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #f48fb1;
+        }
+
+        button {
+            background-color: #c2185b;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #880e4f;
+        }
+
+        footer {
+            background-color: #c2185b;
+            color: white;
+            text-align: center;
+            padding: 15px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>Shreeya Clothing Store</h1>
+    <p>Trendy • Affordable • Comfortable</p>
+</header>
+
+<nav>
+    <a href="#about">About</a>
+    <a href="#products">Products</a>
+    <a href="#price">Price</a>
+    <a href="#order">Order</a>
+    <a href="#contact">Contact</a>
+</nav>
+
+<section id="about">
+    <h2>About Our Shop</h2>
+    <p id="aboutText">
+        Shreeya Clothing Store offers fashionable clothes for men, women, and kids.
+    </p>
+
+    <img src="https://images.pexels.com/photos/3965557/pexels-photo-3965557.jpeg"
+         alt="Boutique Hanging Clothes">
+
+    <button onclick="changeText()">Know More</button>
+</section>
+
+<section id="products">
+    <h2>Our Clothing Collection</h2>
+    <ul id="productList">
+        <li>Men's Wear</li>
+        <li>Women's Wear</li>
+        <li>Kids Wear</li>
+    </ul>
+
+    <button onclick="addProduct()">Add Seasonal Collection</button>
+</section>
+
+<section id="price">
+    <h2>Price List</h2>
+    <table>
+        <tr>
+            <th>Item</th>
+            <th>Price (₹)</th>
+        </tr>
+        <tr>
+            <td>Jeans</td>
+            <td>1200</td>
+        </tr>
+        <tr>
+            <td>Kurti</td>
+            <td>1500</td>
+        </tr>
+    </table>
+</section>
+
+
+<section>
+    <h2>Store Walkthrough</h2>
+    <iframe width="420" height="240"
+        src="https://www.youtube.com/embed/QGx9xkWb6yQ"
+        allowfullscreen>
+    </iframe>
+
+    <h3>Our Location</h3>
+    <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3721.8754531634955!2d79.0881548!3d21.1458006"
+        width="420"
+        height="240"
+        style="border:0;"
+        loading="lazy">
+    </iframe>
+</section>
+
+<section id="order">
+    <h2>Place Your Order</h2>
+
+    <form onsubmit="return validateForm()">
+        <label>Name:</label><br>
+        <input type="text" id="name"><br><br>
+
+        <label>Mobile Number:</label><br>
+        <input type="tel" id="mobile"><br><br>
+
+        <label>Select Item:</label><br>
+        <select id="item">
+            <option>Jeans</option>
+            <option>T-Shirt</option>
+            <option>Kurti</option>
+        </select><br><br>
+
+        <button type="submit">Submit Order</button>
+    </form>
+
+    <p id="message"></p>
+</section>
+
+<footer id="contact">
+    <p>📍 Main Market Road, Nagpur</p>
+    <p>📞 xxxxxxx</p>
+    <p>&copy; 2026 Shreeya Clothing Store</p>
+</footer>
+
+<script>
+    
+    function changeText() {
+        document.getElementById("aboutText").innerHTML =
+            "We provide premium fabrics, modern designs, and excellent customer service.";
+    }
+
+    function addProduct() {
+        let list = document.getElementById("productList");
+        let newItem = document.createElement("li");
+        newItem.textContent = "Seasonal Collection";
+        list.appendChild(newItem);
+    }
+
+    function validateForm() {
+        let name = document.getElementById("name").value;
+        let mobile = document.getElementById("mobile").value;
+        let message = document.getElementById("message");
+
+        if (name === "" || mobile === "") {
+            message.style.color = "red";
+            message.innerHTML = "Please fill all details!";
+            return false;
+        } else {
+            message.style.color = "green";
+            message.innerHTML = "Order placed successfully!";
+            return false; 
+        }
+    }
+</script>
+
+</body>
+</html>

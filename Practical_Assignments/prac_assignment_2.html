@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Clothing1 Boutique</title>
+
+    
+    <style>
+        
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background-color: #fff5f8;
+            color: #333;
+        }
+
+       
+        header {
+            background: linear-gradient(135deg, #c2185b, #880e4f);
+            color: white;
+            text-align: center;
+            padding: 30px;
+        }
+
+       
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            background-color: #f8bbd0;
+            padding: 12px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #4a0033;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #c2185b;
+            text-decoration: underline;
+        }
+
+        
+        main {
+            padding: 20px;
+        }
+
+        
+        section {
+            background: white;
+            margin: 20px auto;
+            padding: 20px;
+            max-width: 900px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            color: #c2185b;
+        }
+
+        
+        img {
+            width: 100%;
+            border-radius: 12px;
+            margin-top: 15px;
+        }
+
+      
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #f48fb1;
+        }
+
+       
+        .media {
+            display: flex;
+            gap: 20px;
+        }
+
+        iframe {
+            width: 100%;
+            height: 280px;
+            border: none;
+            border-radius: 10px;
+        }
+
+     
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        input, select {
+            padding: 10px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            background-color: #c2185b;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #880e4f;
+            transition: 0.3s;
+        }
+
+        footer {
+            background-color: #c2185b;
+            color: white;
+            text-align: center;
+            padding: 15px;
+        }
+
+        
+        @media (max-width: 768px) {
+            .media {
+                flex-direction: column;
+            }
+
+            nav {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>Clothing1 Boutique</h1>
+    <p>Elegant • Trendy • Premium Fashion</p>
+</header>
+
+<nav>
+    <a href="#about">About</a>
+    <a href="#collection">Collection</a>
+    <a href="#price">Price</a>
+    <a href="#media">Media</a>
+    <a href="#contact">Contact</a>
+</nav>
+
+<main>
+
+<section id="about">
+    <h2>About Our Boutique</h2>
+    <p>
+        Clothing1 Boutique offers premium fashion inspired by modern global trends.
+        We focus on quality fabrics, elegant designs, and customer satisfaction.
+    </p>
+
+    
+    <img src="https://images.pexels.com/photos/974911/pexels-photo-974911.jpeg"
+         alt="Luxury Boutique Interior">
+</section>
+
+<section id="collection">
+    <h2>Our Collection</h2>
+
+    <ul>
+        <li>Designer Dresses</li>
+        <li>Indo-Western Wear</li>
+        <li>Party & Casual Wear</li>
+        <li>Seasonal Collection</li>
+    </ul>
+
+    <ol>
+        <li>Floral Dresses</li>
+        <li>Silk Kurtis</li>
+        <li>Premium Shirts</li>
+    </ol>
+</section>
+
+<section id="price">
+    <h2>Price List</h2>
+
+    <table>
+        <tr>
+            <th>Item</th>
+            <th>Category</th>
+            <th>Price (₹)</th>
+        </tr>
+        <tr>
+            <td>Designer Dress</td>
+            <td>Women</td>
+            <td>3200</td>
+        </tr>
+        <tr>
+            <td>Kurti Set</td>
+            <td>Women</td>
+            <td>2500</td>
+        </tr>
+        <tr>
+            <td>Casual Shirt</td>
+            <td>Men</td>
+            <td>1800</td>
+        </tr>
+    </table>
+</section>
+
+<section id="media">
+    <h2>Media & Location</h2>
+
+    <div class="media">
+       
+        <iframe
+            src="https://www.youtube.com/embed/QGx9xkWb6yQ"
+            allowfullscreen>
+        </iframe>
+
+        
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3662.309400291394!2d75.8577!3d22.7195!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1"
+            loading="lazy">
+        </iframe>
+    </div>
+</section>
+
+<section id="contact">
+    <h2>Contact & Order</h2>
+
+    <form>
+        <input type="text" placeholder="Your Name">
+        <input type="tel" placeholder="Mobile Number">
+
+        <select>
+            <option>Designer Dress</option>
+            <option>Kurti Set</option>
+            <option>Casual Shirt</option>
+        </select>
+
+        <button type="submit">Place Order</button>
+    </form>
+</section>
+
+</main>
+
+<footer>
+    <p>© 2026 Clothing1 Boutique | All Rights Reserved</p>
+</footer>
+
+</body>
+</html>

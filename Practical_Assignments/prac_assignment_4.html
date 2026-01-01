@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Dynamic Boutique Shop</title>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        background: #fff0f5;
+    }
+
+    header {
+        background: #b0004b;
+        color: white;
+        padding: 20px;
+        text-align: center;
+    }
+
+    section {
+        padding: 20px;
+        max-width: 1200px;
+        margin: auto;
+    }
+
+    .products {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 20px;
+    }
+
+    .card {
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        padding: 15px;
+        text-align: center;
+    }
+
+    .card img {
+        height: 200px;
+        width: 100%;
+        object-fit: contain;
+    }
+
+    .card h3 {
+        font-size: 16px;
+    }
+
+    .price {
+        color: #b0004b;
+        font-weight: bold;
+    }
+
+    button {
+        background: #b0004b;
+        color: white;
+        border: none;
+        padding: 8px 12px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background: #7a0033;
+    }
+
+    footer {
+        background: #b0004b;
+        color: white;
+        text-align: center;
+        padding: 15px;
+        margin-top: 20px;
+    }
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>Shree's Style Heaven</h1>
+    <p>Modern Fashion • Dynamic Shopping</p>
+</header>
+
+<section>
+    <h2>Our Products</h2>
+    <div class="products" id="productContainer">
+        
+    </div>
+</section>
+
+<footer>
+    <p>📍 Nagpur | 📞 xxxxxxxxxx</p>
+    <p>&copy; 2026 Shreeya Boutique</p>
+</footer>
+
+<script>
+
+const API_URL = "https://fakestoreapi.com/products/category/women's clothing";
+
+
+let productsArray = [];
+
+
+const fetchProducts = async () => {
+    try {
+        const response = await fetch(API_URL);
+        productsArray = await response.json();
+        displayProducts(productsArray);
+    } catch (error) {
+        console.log("Error fetching data:", error);
+    }
+};
+
+
+const displayProducts = (products) => {
+    const container = document.getElementById("productContainer");
+    container.innerHTML = "";
+
+    products.forEach(product => {
+        
+        const { title, price, image } = product;
+
+        const card = document.createElement("div");
+        card.classList.add("card");
+
+        card.innerHTML = `
+            <img src="${image}" alt="Clothing Item">
+            <h3>${title}</h3>
+            <p class="price">₹ ${(price * 80).toFixed(0)}</p>
+            <button>Add to Cart</button>
+        `;
+
+        
+        card.querySelector("button").addEventListener("click", () => {
+            addToCart(title);
+        });
+
+        container.appendChild(card);
+    });
+};
+
+
+const addToCart = (productName) => {
+    alert(`${productName} added to cart 🛒`);
+};
+
+fetchProducts();
+
+</script>
+
+</body>
+</html>
