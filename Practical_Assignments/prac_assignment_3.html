@@ -1,224 +1,233 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Shreeya Clothing Store</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fashion Boutique</title>
 
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #fff5f8;
-            margin: 0;
-            color: #333;
-        }
+<style>
+/* ===== Global Styles ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
 
-        header {
-            background-color: #c2185b;
-            color: white;
-            text-align: center;
-            padding: 20px;
-        }
+body {
+    background: #f4f6fb;
+    color: #333;
+}
 
-        nav {
-            background-color: #f8bbd0;
-            padding: 10px;
-            text-align: center;
-        }
+/* ===== Header ===== */
+header {
+    background: linear-gradient(90deg, #6a11cb, #2575fc);
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
 
-        nav a {
-            margin: 0 10px;
-            text-decoration: none;
-            font-weight: bold;
-            color: #4a0033;
-        }
+/* ===== Navigation ===== */
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    background: white;
+    padding: 12px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+}
 
-        nav a:hover {
-            color: #c2185b;
-        }
+nav a {
+    text-decoration: none;
+    color: #2575fc;
+    font-weight: bold;
+}
 
-        section {
-            background: white;
-            max-width: 900px;
-            margin: 20px auto;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        }
+/* ===== Main Section ===== */
+.container {
+    padding: 30px;
+}
 
-        img {
-            width: 100%;
-            border-radius: 10px;
-        }
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #6a11cb;
+}
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
+/* ===== Products ===== */
+.products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
 
-        th, td {
-            border: 1px solid #ccc;
-            padding: 10px;
-            text-align: center;
-        }
+.card {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    text-align: center;
+}
 
-        th {
-            background-color: #f48fb1;
-        }
+.card img {
+    width: 100%;
+    border-radius: 8px;
+}
 
-        button {
-            background-color: #c2185b;
-            color: white;
-            padding: 10px;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-        }
+.card button {
+    margin-top: 10px;
+    padding: 8px 15px;
+    background: #2575fc;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
 
-        button:hover {
-            background-color: #880e4f;
-        }
+.card button:hover {
+    background: #6a11cb;
+}
 
-        footer {
-            background-color: #c2185b;
-            color: white;
-            text-align: center;
-            padding: 15px;
-        }
-    </style>
+/* ===== Cart ===== */
+#cart {
+    margin-top: 30px;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+#cart p {
+    margin: 8px 0;
+}
+
+/* ===== Contact ===== */
+.contact {
+    margin-top: 30px;
+    background: #6a11cb;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 8px;
+    margin: 8px 0;
+    border-radius: 5px;
+    border: none;
+}
+
+button.submit {
+    background: white;
+    color: #6a11cb;
+    padding: 10px;
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* ===== Footer ===== */
+footer {
+    margin-top: 30px;
+    text-align: center;
+    padding: 15px;
+    background: #222;
+    color: #aaa;
+}
+</style>
 </head>
 
 <body>
 
 <header>
-    <h1>Shreeya Clothing Store</h1>
-    <p>Trendy • Affordable • Comfortable</p>
+    <h1>Fashion Boutique</h1>
+    <p>Fashion | Style | Elegance</p>
 </header>
 
 <nav>
-    <a href="#about">About</a>
-    <a href="#products">Products</a>
-    <a href="#price">Price</a>
-    <a href="#order">Order</a>
-    <a href="#contact">Contact</a>
+    <a href="#">Home</a>
+    <a href="#">Products</a>
+    <a href="#">Contact</a>
 </nav>
 
-<section id="about">
-    <h2>About Our Shop</h2>
-    <p id="aboutText">
-        Shreeya Clothing Store offers fashionable clothes for men, women, and kids.
-    </p>
+<div class="container">
 
-    <img src="https://images.pexels.com/photos/3965557/pexels-photo-3965557.jpeg"
-         alt="Boutique Hanging Clothes">
+    <h2>Our Collection</h2>
 
-    <button onclick="changeText()">Know More</button>
-</section>
+    <div class="products">
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1520975916090-3105956dac38" alt="">
+            <h3>Designer Clothes</h3>
+            <p>Price: ₹2499</p>
+            <button onclick="addToCart('Men Designer Jacket', 2499)">Add to Cart</button>
+        </div>
 
-<section id="products">
-    <h2>Our Clothing Collection</h2>
-    <ul id="productList">
-        <li>Men's Wear</li>
-        <li>Women's Wear</li>
-        <li>Kids Wear</li>
-    </ul>
+        <div class="card">
+            <img src="https://static.vecteezy.com/system/resources/thumbnails/057/486/094/small/model-showcases-casual-white-oversized-t-shirt-in-studio-photo.jpeg" alt="">
+            <h3>Women Casual Wear</h3>
+            <p>Price: ₹1299</p>
+            <button onclick="addToCart('Women Casual Wear', 1299)">Add to Cart</button>
+        </div>
 
-    <button onclick="addProduct()">Add Seasonal Collection</button>
-</section>
+        <div class="card">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20240427/zx3R/662c067a16fd2c6e6ad8884c/-473Wx593H-467268902-white-MODEL.jpg" alt="">
+            <h3>Men Casual Wear</h3>
+            <p>Price: ₹3199</p>
+            <button onclick="addToCart('MEn Casual wear', 3199)">Add to Cart</button>
+        </div>
+    </div>
 
-<section id="price">
-    <h2>Price List</h2>
-    <table>
-        <tr>
-            <th>Item</th>
-            <th>Price (₹)</th>
-        </tr>
-        <tr>
-            <td>Jeans</td>
-            <td>1200</td>
-        </tr>
-        <tr>
-            <td>Kurti</td>
-            <td>1500</td>
-        </tr>
-    </table>
-</section>
+    <div id="cart">
+        <h2>Shopping Cart</h2>
+        <p id="cartItems">No items added</p>
+        <p><strong>Total Amount: ₹<span id="total">0</span></strong></p>
+    </div>
 
+    <div class="contact">
+        <h2>Contact Us</h2>
+        <input type="text" id="name" placeholder="Your Name">
+        <textarea id="message" placeholder="Your Message"></textarea>
+        <button class="submit" onclick="submitForm()">Send Message</button>
+        <p id="response"></p>
+    </div>
 
-<section>
-    <h2>Store Walkthrough</h2>
-    <iframe width="420" height="240"
-        src="https://www.youtube.com/embed/QGx9xkWb6yQ"
-        allowfullscreen>
-    </iframe>
+</div>
 
-    <h3>Our Location</h3>
-    <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3721.8754531634955!2d79.0881548!3d21.1458006"
-        width="420"
-        height="240"
-        style="border:0;"
-        loading="lazy">
-    </iframe>
-</section>
-
-<section id="order">
-    <h2>Place Your Order</h2>
-
-    <form onsubmit="return validateForm()">
-        <label>Name:</label><br>
-        <input type="text" id="name"><br><br>
-
-        <label>Mobile Number:</label><br>
-        <input type="tel" id="mobile"><br><br>
-
-        <label>Select Item:</label><br>
-        <select id="item">
-            <option>Jeans</option>
-            <option>T-Shirt</option>
-            <option>Kurti</option>
-        </select><br><br>
-
-        <button type="submit">Submit Order</button>
-    </form>
-
-    <p id="message"></p>
-</section>
-
-<footer id="contact">
-    <p>📍 Main Market Road, Nagpur</p>
-    <p>📞 xxxxxxx</p>
-    <p>&copy; 2026 Shreeya Clothing Store</p>
+<footer>
+    © 2026 Fashion Boutique | Practical JavaScript Assignment
 </footer>
 
 <script>
-    
-    function changeText() {
-        document.getElementById("aboutText").innerHTML =
-            "We provide premium fabrics, modern designs, and excellent customer service.";
-    }
+/* ===== JavaScript Section ===== */
 
-    function addProduct() {
-        let list = document.getElementById("productList");
-        let newItem = document.createElement("li");
-        newItem.textContent = "Seasonal Collection";
-        list.appendChild(newItem);
-    }
+// Variables
+let totalAmount = 0;
+let items = [];
 
-    function validateForm() {
-        let name = document.getElementById("name").value;
-        let mobile = document.getElementById("mobile").value;
-        let message = document.getElementById("message");
+// Function to add items to cart
+function addToCart(product, price) {
+    items.push(product);
+    totalAmount += price;
 
-        if (name === "" || mobile === "") {
-            message.style.color = "red";
-            message.innerHTML = "Please fill all details!";
-            return false;
-        } else {
-            message.style.color = "green";
-            message.innerHTML = "Order placed successfully!";
-            return false; 
-        }
+    document.getElementById("cartItems").innerText =
+        "Items: " + items.join(", ");
+
+    document.getElementById("total").innerText = totalAmount;
+}
+
+// Function with control flow
+function submitForm() {
+    let name = document.getElementById("name").value;
+    let msg = document.getElementById("message").value;
+    let response = document.getElementById("response");
+
+    if (name === "" || msg === "") {
+        response.innerText = "Please fill all details.";
+    } else {
+        response.innerText = "Thank you, " + name + "! We will contact you soon.";
     }
+}
 </script>
 
 </body>

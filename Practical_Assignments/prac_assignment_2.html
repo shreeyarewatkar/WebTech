@@ -1,262 +1,263 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Clothing1 Boutique</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shreeya Boutique</title>
 
-    
-    <style>
-        
-        body {
-            margin: 0;
-            font-family: 'Segoe UI', Arial, sans-serif;
-            background-color: #fff5f8;
-            color: #333;
-        }
+<style>
+/* ===== Google Font ===== */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 
-       
-        header {
-            background: linear-gradient(135deg, #c2185b, #880e4f);
-            color: white;
-            text-align: center;
-            padding: 30px;
-        }
+/* ===== Global Styles ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Box Model */
+    font-family: 'Poppins', sans-serif;
+}
 
-       
-        nav {
-            display: flex;
-            justify-content: center;
-            gap: 25px;
-            background-color: #f8bbd0;
-            padding: 12px;
-        }
+body {
+    background: linear-gradient(120deg, #fdfbfb, #ebedee);
+    color: #333;
+}
 
-        nav a {
-            text-decoration: none;
-            color: #4a0033;
-            font-weight: bold;
-        }
+/* ===== Header ===== */
+header {
+    background: linear-gradient(90deg, #8e2de2, #4a00e0);
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
 
-        nav a:hover {
-            color: #c2185b;
-            text-decoration: underline;
-        }
+header h1 {
+    font-size: 2.5rem;
+}
 
-        
-        main {
-            padding: 20px;
-        }
+header p {
+    font-size: 1rem;
+    opacity: 0.9;
+}
 
-        
-        section {
-            background: white;
-            margin: 20px auto;
-            padding: 20px;
-            max-width: 900px;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
+/* ===== Navigation ===== */
+nav {
+    background-color: #fff;
+    display: flex; /* Flexbox */
+    justify-content: center;
+    gap: 30px;
+    padding: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
 
-        h2 {
-            color: #c2185b;
-        }
+nav a {
+    text-decoration: none;
+    color: #4a00e0;
+    font-weight: 600;
+    transition: color 0.3s;
+}
 
-        
-        img {
-            width: 100%;
-            border-radius: 12px;
-            margin-top: 15px;
-        }
+nav a:hover {
+    color: #8e2de2;
+}
 
-      
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
+/* ===== Hero Section ===== */
+.hero {
+    display: grid; /* Grid layout */
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    padding: 40px;
+    align-items: center;
+}
 
-        th, td {
-            border: 1px solid #ddd;
-            padding: 10px;
-            text-align: center;
-        }
+.hero img {
+    width: 100%;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
 
-        th {
-            background-color: #f48fb1;
-        }
+.hero-text h2 {
+    font-size: 2rem;
+    color: #4a00e0;
+}
 
-       
-        .media {
-            display: flex;
-            gap: 20px;
-        }
+.hero-text p {
+    margin-top: 15px;
+    line-height: 1.6;
+}
 
-        iframe {
-            width: 100%;
-            height: 280px;
-            border: none;
-            border-radius: 10px;
-        }
+/* ===== Products ===== */
+.products {
+    padding: 40px;
+    background-color: #fff;
+}
 
-     
-        form {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
+.products h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #4a00e0;
+}
 
-        input, select {
-            padding: 10px;
-            border-radius: 6px;
-            border: 1px solid #ccc;
-        }
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+}
 
-        button {
-            background-color: #c2185b;
-            color: white;
-            padding: 12px;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-        }
+.card {
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
 
-        button:hover {
-            background-color: #880e4f;
-            transition: 0.3s;
-        }
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+}
 
-        footer {
-            background-color: #c2185b;
-            color: white;
-            text-align: center;
-            padding: 15px;
-        }
+.card img {
+    width: 100%;
+    border-radius: 10px;
+}
 
-        
-        @media (max-width: 768px) {
-            .media {
-                flex-direction: column;
-            }
+.card h3 {
+    margin: 15px 0 5px;
+}
 
-            nav {
-                flex-direction: column;
-                gap: 10px;
-            }
-        }
-    </style>
+.card span {
+    color: #8e2de2;
+    font-weight: bold;
+}
+
+/* ===== Contact Section ===== */
+.contact {
+    padding: 40px;
+    background: linear-gradient(120deg, #8e2de2, #4a00e0);
+    color: white;
+}
+
+.contact h2 {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+form {
+    max-width: 500px;
+    margin: auto;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 8px;
+    outline: none;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background: #fff;
+    color: #4a00e0;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s;
+}
+
+button:hover {
+    background: #4a00e0;
+    color: white;
+    border: 1px solid #fff;
+}
+
+/* ===== Footer ===== */
+footer {
+    text-align: center;
+    padding: 15px;
+    background: #222;
+    color: #aaa;
+}
+
+/* ===== Responsive Design ===== */
+@media (max-width: 768px) {
+    .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    nav {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+</style>
 </head>
 
 <body>
 
 <header>
-    <h1>Clothing1 Boutique</h1>
-    <p>Elegant • Trendy • Premium Fashion</p>
+    <h1>Fashion Boutique</h1>
+    <p>Fashion • Style • Elegance</p>
 </header>
 
 <nav>
-    <a href="#about">About</a>
-    <a href="#collection">Collection</a>
-    <a href="#price">Price</a>
-    <a href="#media">Media</a>
-    <a href="#contact">Contact</a>
+    <a href="#">Home</a>
+    <a href="#">Products</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
 </nav>
 
-<main>
-
-<section id="about">
-    <h2>About Our Boutique</h2>
-    <p>
-        Clothing1 Boutique offers premium fashion inspired by modern global trends.
-        We focus on quality fabrics, elegant designs, and customer satisfaction.
-    </p>
-
-    
-    <img src="https://images.pexels.com/photos/974911/pexels-photo-974911.jpeg"
-         alt="Luxury Boutique Interior">
+<section class="hero">
+    <div class="hero-text">
+        <h2>Modern Fashion for Every Occasion</h2>
+        <p>
+            Discover premium quality clothing designed to bring confidence,
+            comfort, and elegance to your everyday life.
+        </p>
+    </div>
+    <img src="https://media.istockphoto.com/id/1409728562/photo/luxury-clothing-store-interior-with-clothes-shoes-and-personal-accessories.jpg?s=2048x2048&w=is&k=20&c=pt6eiS40n8sLf8cr51s9H80q-s8scu6cwPm8VOpOAC4=" alt="Boutique">
 </section>
 
-<section id="collection">
+<section class="products">
     <h2>Our Collection</h2>
+    <div class="product-grid">
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1520975916090-3105956dac38" alt="">
+            <h3>Men Designer Jacket</h3>
+            <span>₹2,499</span>
+        </div>
 
-    <ul>
-        <li>Designer Dresses</li>
-        <li>Indo-Western Wear</li>
-        <li>Party & Casual Wear</li>
-        <li>Seasonal Collection</li>
-    </ul>
+        <div class="card">
+            <img src="https://static.vecteezy.com/system/resources/thumbnails/057/486/094/small/model-showcases-casual-white-oversized-t-shirt-in-studio-photo.jpeg" alt="">
+            <h3>Women Casual Wear</h3>
+            <span>₹1,299</span>
+        </div>
 
-    <ol>
-        <li>Floral Dresses</li>
-        <li>Silk Kurtis</li>
-        <li>Premium Shirts</li>
-    </ol>
-</section>
-
-<section id="price">
-    <h2>Price List</h2>
-
-    <table>
-        <tr>
-            <th>Item</th>
-            <th>Category</th>
-            <th>Price (₹)</th>
-        </tr>
-        <tr>
-            <td>Designer Dress</td>
-            <td>Women</td>
-            <td>3200</td>
-        </tr>
-        <tr>
-            <td>Kurti Set</td>
-            <td>Women</td>
-            <td>2500</td>
-        </tr>
-        <tr>
-            <td>Casual Shirt</td>
-            <td>Men</td>
-            <td>1800</td>
-        </tr>
-    </table>
-</section>
-
-<section id="media">
-    <h2>Media & Location</h2>
-
-    <div class="media">
-       
-        <iframe
-            src="https://www.youtube.com/embed/QGx9xkWb6yQ"
-            allowfullscreen>
-        </iframe>
-
-        
-        <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3662.309400291394!2d75.8577!3d22.7195!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1"
-            loading="lazy">
-        </iframe>
+        <div class="card">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20240427/zx3R/662c067a16fd2c6e6ad8884c/-473Wx593H-467268902-white-MODEL.jpg" alt="">
+            <h3>Men Casual Wear</h3>
+            <span>₹3,199</span>
+        </div>
     </div>
 </section>
 
-<section id="contact">
-    <h2>Contact & Order</h2>
-
+<section class="contact">
+    <h2>Contact Us</h2>
     <form>
         <input type="text" placeholder="Your Name">
-        <input type="tel" placeholder="Mobile Number">
-
-        <select>
-            <option>Designer Dress</option>
-            <option>Kurti Set</option>
-            <option>Casual Shirt</option>
-        </select>
-
-        <button type="submit">Place Order</button>
+        <input type="email" placeholder="Your Email">
+        <textarea rows="4" placeholder="Your Message"></textarea>
+        <button type="submit">Send Message</button>
     </form>
 </section>
 
-</main>
-
 <footer>
-    <p>© 2026 Clothing1 Boutique | All Rights Reserved</p>
+    © 2026 Fashion Boutique | Designed with ❤️
 </footer>
 
 </body>

@@ -2,152 +2,205 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Dynamic Boutique Shop</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fashion Boutique</title>
 
 <style>
-    body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        background: #fff0f5;
-    }
+/* ===== Global ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
 
-    header {
-        background: #b0004b;
-        color: white;
-        padding: 20px;
-        text-align: center;
-    }
+body {
+    background: #f4f6fb;
+    color: #333;
+}
 
-    section {
-        padding: 20px;
-        max-width: 1200px;
-        margin: auto;
-    }
+/* ===== Header ===== */
+header {
+    background: linear-gradient(90deg, #ff512f, #dd2476);
+    color: white;
+    text-align: center;
+    padding: 25px;
+}
 
-    .products {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-        gap: 20px;
-    }
+/* ===== Navigation ===== */
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    background: white;
+    padding: 12px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
 
-    .card {
-        background: white;
-        border-radius: 10px;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        padding: 15px;
-        text-align: center;
-    }
+nav a {
+    text-decoration: none;
+    color: #dd2476;
+    font-weight: bold;
+}
 
-    .card img {
-        height: 200px;
-        width: 100%;
-        object-fit: contain;
-    }
+/* ===== Main ===== */
+.container {
+    padding: 30px;
+}
 
-    .card h3 {
-        font-size: 16px;
-    }
+h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #dd2476;
+}
 
-    .price {
-        color: #b0004b;
-        font-weight: bold;
-    }
+/* ===== Products ===== */
+.products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 20px;
+}
 
-    button {
-        background: #b0004b;
-        color: white;
-        border: none;
-        padding: 8px 12px;
-        border-radius: 5px;
-        cursor: pointer;
-    }
+.card {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    text-align: center;
+}
 
-    button:hover {
-        background: #7a0033;
-    }
+.card img {
+    width: 100%;
+    height: 220px;
+    object-fit: contain;
+}
 
-    footer {
-        background: #b0004b;
-        color: white;
-        text-align: center;
-        padding: 15px;
-        margin-top: 20px;
-    }
+.card button {
+    margin-top: 10px;
+    padding: 8px 14px;
+    background: #dd2476;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* ===== Cart ===== */
+.cart {
+    margin-top: 30px;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.cart p {
+    margin: 8px 0;
+}
+
+/* ===== Footer ===== */
+footer {
+    margin-top: 30px;
+    text-align: center;
+    padding: 15px;
+    background: #222;
+    color: #aaa;
+}
 </style>
 </head>
 
 <body>
 
 <header>
-    <h1>Shree's Style Heaven</h1>
-    <p>Modern Fashion • Dynamic Shopping</p>
+    <h1>Fashion Boutique</h1>
+    <p>Trendy • Modern • Elegant</p>
 </header>
 
-<section>
+<nav>
+    <a href="#">Home</a>
+    <a href="#">Shop</a>
+    <a href="#">Cart</a>
+</nav>
+
+<div class="container">
     <h2>Our Products</h2>
-    <div class="products" id="productContainer">
-        
+    <div class="products" id="productList"></div>
+
+    <div class="cart">
+        <h2>Shopping Cart</h2>
+        <p id="cartItems">No items added</p>
+        <p><strong>Total: ₹<span id="total">0</span></strong></p>
     </div>
-</section>
+</div>
 
 <footer>
-    <p>📍 Nagpur | 📞 xxxxxxxxxx</p>
-    <p>&copy; 2026 Shreeya Boutique</p>
+    © 2026 Fashion Boutique | Advanced JavaScript Practical
 </footer>
 
 <script>
+/* ===== JavaScript (ES6 + API + DOM) ===== */
 
-const API_URL = "https://fakestoreapi.com/products/category/women's clothing";
+// Array & Object
+let cart = [];
+let totalAmount = 0;
 
-
-let productsArray = [];
-
-
+// Fetch products from API
 const fetchProducts = async () => {
     try {
-        const response = await fetch(API_URL);
-        productsArray = await response.json();
-        displayProducts(productsArray);
+        const response = await fetch("https://fakestoreapi.com/products");
+        const data = await response.json();
+        displayProducts(data.slice(0, 6)); // show limited items
     } catch (error) {
-        console.log("Error fetching data:", error);
+        console.error("Error fetching products:", error);
     }
 };
 
-
+// Display products dynamically
 const displayProducts = (products) => {
-    const container = document.getElementById("productContainer");
-    container.innerHTML = "";
+    const productList = document.getElementById("productList");
+    productList.innerHTML = "";
 
-    products.forEach(product => {
-        
-        const { title, price, image } = product;
-
+    products.forEach(({ title, price, image }) => {
         const card = document.createElement("div");
-        card.classList.add("card");
+        card.className = "card";
 
         card.innerHTML = `
-            <img src="${image}" alt="Clothing Item">
-            <h3>${title}</h3>
-            <p class="price">₹ ${(price * 80).toFixed(0)}</p>
+            <img src="${image}">
+            <h3>${title.substring(0, 25)}...</h3>
+            <p>₹${Math.round(price * 80)}</p>
             <button>Add to Cart</button>
         `;
 
-        
         card.querySelector("button").addEventListener("click", () => {
-            addToCart(title);
+            addToCart(title, Math.round(price * 80));
         });
 
-        container.appendChild(card);
+        productList.appendChild(card);
     });
 };
 
-
-const addToCart = (productName) => {
-    alert(`${productName} added to cart 🛒`);
+// Add to cart function
+const addToCart = (productName, price) => {
+    cart.push({ productName, price });
+    totalAmount += price;
+    updateCart();
 };
 
-fetchProducts();
+// Update cart UI
+const updateCart = () => {
+    const cartItems = document.getElementById("cartItems");
+    const total = document.getElementById("total");
 
+    if (cart.length === 0) {
+        cartItems.textContent = "No items added";
+    } else {
+        cartItems.textContent = cart.map(item => item.productName).join(", ");
+    }
+
+    total.textContent = totalAmount;
+};
+
+// Call API on load
+fetchProducts();
 </script>
 
 </body>
